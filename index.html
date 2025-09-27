@@ -1,161 +1,127 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>GetKey — Daily Key Access</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GetKey Menu</title>
   <style>
-    /* ===== Theme cơ bản ===== */
-    :root{
-      --bg:#0a0f1e;
-      --card:#141a32;
-      --accent:#00f5d4;
-      --accent2:#00bbf9;
-      --muted:#9ba3b5;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f1115;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
-    body{
-      margin:0;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-family:'Segoe UI', Inter, sans-serif;
-      background:radial-gradient(circle at top, #05070f, #0a0f1e);
-      color:#eaf4ff;
-      overflow:hidden;
+    .card {
+      background: #1b1f27;
+      padding: 25px;
+      border-radius: 15px;
+      width: 350px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      animation: fadeIn 1s ease-in-out;
     }
-
-    /* Hiệu ứng nền: gradient chuyển động */
-    body::before{
-      content:"";
-      position:absolute;
-      width:200%;
-      height:200%;
-      background:conic-gradient(from 0deg, var(--accent), var(--accent2), #ff4ecd, var(--accent));
-      animation:rotate 12s linear infinite;
-      filter:blur(120px);
-      z-index:0;
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
-    @keyframes rotate {
-      0%{transform:rotate(0deg);}
-      100%{transform:rotate(360deg);}
+    .avatar {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg,#4e9af1,#7b60ff);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      margin: auto;
+      font-size: 20px;
     }
-
-    .card{
-      position:relative;
-      z-index:1;
-      width:100%;
-      max-width:500px;
-      background:rgba(20,26,50,0.8);
-      backdrop-filter: blur(18px);
-      border-radius:16px;
-      padding:32px;
-      box-shadow:0 0 30px rgba(0,245,212,0.1);
-      border:1px solid rgba(255,255,255,0.05);
-      animation:fadeIn 1s ease;
+    h2 {
+      margin-top: 15px;
     }
-    @keyframes fadeIn{
-      from{opacity:0;transform:translateY(20px);}
-      to{opacity:1;transform:translateY(0);}
+    input, .output {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 14px;
     }
-
-    h1{
-      margin:0 0 12px;
-      font-size:22px;
-      background:linear-gradient(to right, var(--accent), var(--accent2));
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
+    input {
+      background: #2a2f3a;
+      color: #ccc;
     }
-    p.lead{margin:0 0 20px;color:var(--muted)}
-
-    .row{display:flex;gap:10px;margin-bottom:16px}
-    input[type="text"]{
-      flex:1;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);
-      background:rgba(255,255,255,0.04);color:#fff;font-size:15px;transition:0.3s;
+    .output {
+      background: #15191f;
+      color: #00ffcc;
+      font-weight: bold;
     }
-    input[type="text"]:focus{
-      outline:none;border-color:var(--accent);box-shadow:0 0 8px var(--accent2);
+    .btn {
+      padding: 10px 15px;
+      margin: 5px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: bold;
     }
-    button{
-      padding:0 18px;border-radius:10px;border:none;
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
-      color:#021014;font-weight:600;cursor:pointer;transition:transform 0.2s;
+    .btn-primary {
+      background: #2196f3;
+      color: white;
     }
-    button:hover{transform:scale(1.05);}
-    button:active{transform:scale(0.97);}
-
-    .result{
-      margin-top:8px;padding:14px;border-radius:10px;
-      background:rgba(255,255,255,0.05);color:var(--muted);
-      animation:fadeIn 0.6s ease;
+    .btn-danger {
+      background: #444;
+      color: white;
     }
-    .key-badge{
-      display:inline-block;padding:6px 12px;border-radius:10px;
-      background:rgba(0,245,212,0.1);font-weight:700;letter-spacing:1px;
-      color:var(--accent2);
-      animation:glow 1.5s infinite alternate;
+    .btn:hover {
+      opacity: 0.8;
     }
-    @keyframes glow {
-      from { box-shadow:0 0 6px rgba(0,245,212,0.3);}
-      to { box-shadow:0 0 18px rgba(0,245,212,0.6);}
+    .footer {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #aaa;
     }
-
-    .footer{margin-top:16px;font-size:13px;color:var(--muted);text-align:center}
-    .footer a{color:var(--accent);text-decoration:none;}
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>🔑 GetKey Daily</h1>
-    <p class="lead">Mỗi ngày sẽ có một key mới. Nhập đúng key để tiếp tục!</p>
+    <div class="avatar">GK</div>
+    <h2>GetKey Menu</h2>
+    <p>Lấy đường link từ website GetKey ở đây dán vào để xuất key.</p>
+    <input type="text" placeholder="Ví dụ: https://example.github.io" id="urlInput">
 
-    <div class="row">
-      <input id="keyInput" type="text" placeholder="Nhập key hôm nay..." autocomplete="off" />
-      <button id="checkBtn">Xác nhận</button>
-    </div>
+    <button class="btn btn-primary" onclick="generateKey()">Xuất key</button>
+    <button class="btn btn-danger" onclick="clearKey()">Xóa</button>
 
-    <div id="result" class="result">⌛ Chưa nhập key.</div>
+    <div class="output" id="keyOutput">Key sẽ xuất hiện ở đây</div>
+    <button class="btn btn-primary" onclick="copyKey()">Sao chép</button>
 
-    <div class="footer">
-      Múi giờ: <strong>Asia/Ho_Chi_Minh</strong>
-    </div>
+    <div class="footer">Copyright © TungAPI.vn</div>
   </div>
 
   <script>
-    const SECRET = "SecretDemo_2025"; // thay bằng secret thật
-    const KEY_LENGTH = 8;
-    const SUCCESS_URL = "https://example.com"; // link đích
-
-    function getDateVN(){
-      return new Date().toLocaleDateString('en-CA',{timeZone:"Asia/Ho_Chi_Minh"});
-    }
-    function buf2hex(buf){
-      return Array.from(new Uint8Array(buf)).map(x=>x.toString(16).padStart(2,"0")).join("");
-    }
-    async function genKey(date,secret){
-      const data=new TextEncoder().encode(secret+"|"+date);
-      const hash=await crypto.subtle.digest("SHA-256",data);
-      const hex=buf2hex(hash);
-      const big=BigInt("0x"+hex);
-      let k=big.toString(36).toUpperCase();
-      if(k.length<KEY_LENGTH) k=k+hex;
-      return k.slice(0,KEY_LENGTH);
-    }
-
-    const input=document.getElementById("keyInput");
-    const btn=document.getElementById("checkBtn");
-    const result=document.getElementById("result");
-
-    btn.onclick=async()=>{
-      const key=input.value.trim().toUpperCase();
-      if(!key){result.textContent="❌ Bạn chưa nhập key";return;}
-      const today=getDateVN();
-      const valid=await genKey(today,SECRET);
-      if(key===valid){
-        result.innerHTML=`✅ Key đúng! <br> Hôm nay (${today}) <br><a href="${SUCCESS_URL}" target="_blank" class="key-badge">Mở link</a>`;
-      }else{
-        result.innerHTML=`❌ Sai key. Key hợp lệ hôm nay là <span class="key-badge">${valid}</span>`;
+    function generateKey() {
+      let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      let key = "";
+      for (let i = 0; i < 20; i++) {
+        key += chars.charAt(Math.floor(Math.random() * chars.length));
       }
+      document.getElementById("keyOutput").innerText = key;
+    }
+
+    function clearKey() {
+      document.getElementById("keyOutput").innerText = "Key sẽ xuất hiện ở đây";
+    }
+
+    function copyKey() {
+      let key = document.getElementById("keyOutput").innerText;
+      navigator.clipboard.writeText(key);
+      alert("Đã sao chép key: " + key);
     }
   </script>
 </body>
