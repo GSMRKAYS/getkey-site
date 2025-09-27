@@ -1,128 +1,315 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GetKey Menu</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>START TEAM— Tải app</title>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f1115;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+    :root{
+      --bg1: #f1f7fb;
+      --bg2: #e9f0ff;
+      --accent: #2b79ff;
+      --accent-2: #6bb7ff;
+      --muted: #6b7280;
+      --card-bg: rgba(255,255,255,0.95);
+      --radius: 16px;
+      --glass: rgba(255,255,255,0.8);
+      --shadow: 0 8px 22px rgba(18,35,76,0.08);
+      --maxw: 980px;
     }
-    .card {
-      background: #1b1f27;
-      padding: 25px;
-      border-radius: 15px;
-      width: 350px;
-      text-align: center;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-      animation: fadeIn 1s ease-in-out;
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,var(--bg1),var(--bg2));
+      color: #0b1220;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      justify-content:center;
+      padding:24px 16px;
     }
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
+
+    .wrap{
+      width:100%;
+      max-width:var(--maxw);
     }
-    .avatar {
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg,#4e9af1,#7b60ff);
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-weight: bold;
-      margin: auto;
-      font-size: 20px;
+
+    /* Top bar */
+    header.topbar{
+      position:sticky;
+      top:0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));
+      backdrop-filter: blur(6px);
+      border-radius: 14px;
+      padding:10px 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      box-shadow: var(--shadow);
+      z-index:20;
+      margin-bottom:18px;
     }
-    h2 {
-      margin-top: 15px;
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
     }
-    input, .output {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-      border-radius: 8px;
-      border: none;
-      outline: none;
-      font-size: 14px;
+    .logo{
+      width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;
+      box-shadow: 0 6px 18px rgba(43,121,255,0.18);
     }
-    input {
-      background: #2a2f3a;
-      color: #ccc;
+    .brand h1{font-size:16px;margin:0}
+    .nav{
+      display:flex;gap:14px;align-items:center;
     }
-    .output {
-      background: #15191f;
-      color: #00ffcc;
-      font-weight: bold;
+    .nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:14px}
+    .nav a.primary{color:var(--accent)}
+
+    /* Hero */
+    .hero{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      padding:22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+      border-radius:18px;
+      box-shadow: var(--shadow);
     }
-    .btn {
-      padding: 10px 15px;
-      margin: 5px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-      font-weight: bold;
+
+    .badge{
+      display:inline-block;
+      background: rgba(43,121,255,0.12);
+      color: var(--accent);
+      padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content;
     }
-    .btn-primary {
-      background: #2196f3;
-      color: white;
+
+    .title{
+      font-size:28px;line-height:1.02;font-weight:800;margin:0;
     }
-    .btn-danger {
-      background: #444;
-      color: white;
+    .subtitle{color:var(--muted);font-size:15px;margin:0}
+
+    .hero-cta{
+      display:flex;gap:12px;flex-wrap:wrap;margin-top:6px;
     }
-    .btn:hover {
-      opacity: 0.8;
+    .btn{
+      border:0;padding:12px 18px;border-radius:12px;font-weight:700;font-size:15px;
+      cursor:pointer;
+      display:inline-flex;align-items:center;gap:10px;
     }
-    .footer {
-      margin-top: 15px;
-      font-size: 12px;
-      color: #aaa;
+    .btn.primary{
+      background: linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:white;box-shadow: 0 10px 30px rgba(43,121,255,0.18);
     }
+    .btn.ghost{
+      background:transparent;color:var(--accent);border:1px solid rgba(43,121,255,0.12);
+    }
+
+    .note{
+      margin-top:8px;background:var(--card-bg);padding:12px;border-radius:12px;color: #374151;font-size:14px;box-shadow: 0 6px 18px rgba(15,23,42,0.04);
+    }
+
+    /* Features grid */
+    .features{
+      margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px;
+    }
+    .card{
+      background:var(--card-bg);border-radius:14px;padding:16px;box-shadow: var(--shadow);
+    }
+    .card h3{margin:0 0 8px 0;font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:13px}
+
+    /* big image area */
+    .media{
+      margin-top:18px;background: linear-gradient(180deg,#fff,#f7fbff);border-radius:14px;padding:14px;box-shadow:var(--shadow);
+      display:flex;flex-direction:column;gap:12px;align-items:center;
+    }
+    .screenshot{
+      width:100%;max-width:480px;border-radius:12px;overflow:hidden;border:1px solid rgba(12,20,40,0.04);
+      background: #000; display:flex;align-items:center;justify-content:center;padding:8px;
+    }
+    .screenshot img{width:100%;height:auto;display:block}
+
+    .carousel-controls{display:flex;gap:8px;align-items:center}
+    .dot{width:8px;height:8px;border-radius:999px;background:rgba(0,0,0,0.12)}
+    .dot.active{background:var(--accent)}
+
+    footer{margin-top:22px;text-align:center;color:var(--muted);font-size:13px;padding-bottom:20px}
+
+    /* responsive */
+    @media (max-width:720px){
+      .title{font-size:26px}
+      .features{grid-template-columns:1fr}
+      header.topbar{padding:10px}
+      .brand h1{font-size:15px}
+    }
+
+    /* little entrance animations */
+    .fade-in{opacity:0;transform:translateY(6px);animation:fadeIn 700ms ease forwards}
+    .fade-in.delay-1{animation-delay:100ms}
+    .fade-in.delay-2{animation-delay:200ms}
+    .pop{transform:scale(.98);animation:pop 600ms ease forwards}
+    @keyframes fadeIn{to{opacity:1;transform:none}}
+    @keyframes pop{to{transform:none}}
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="avatar">GK</div>
-    <h2>GetKey Menu</h2>
-    <p>Lấy đường link từ website GetKey ở đây dán vào để xuất key.</p>
-    <input type="text" placeholder="Ví dụ: https://example.github.io" id="urlInput">
+  <div class="wrap">
 
-    <button class="btn btn-primary" onclick="generateKey()">Xuất key</button>
-    <button class="btn btn-danger" onclick="clearKey()">Xóa</button>
+    <!-- Top header -->
+    <header class="topbar fade-in">
+      <div class="brand">
+        <div class="logo">PM</div>
+        <div>
+          <h1>START TEAM</h1>
+          <div style="font-size:12px;color:var(--muted)">Tải về · Tính năng</div>
+        </div>
+      </div>
 
-    <div class="output" id="keyOutput">Key sẽ xuất hiện ở đây</div>
-    <button class="btn btn-primary" onclick="copyKey()">Sao chép</button>
+      <nav class="nav">
+        <a href="#download" class="primary">Tải về</a>
+        <a href="#features">Tính năng</a>
+        <a href="#" title="menu">⋮</a>
+      </nav>
+    </header>
 
-    <div class="footer">Copyright © TungAPI.vn</div>
+    <!-- Hero -->
+    <section class="hero pop">
+      <span class="badge fade-in delay-1">Phiên bản miễn phí</span>
+      <h2 class="title fade-in delay-2">START TEAM— Tối ưu kết nối, cải thiện trải nghiệm chơi</h2>
+      <p class="subtitle fade-in delay-2">Ứng dụng mang tính chất trải nghiệm.</p>
+
+      <div class="hero-cta fade-in">
+        <a id="download" class="btn primary" href="#" onclick="downloadClick(event)">
+          ⬇ Tải về APK
+        </a>
+        <a class="btn ghost" href="#features">Xem tính năng</a>
+      </div>
+
+      <div class="note fade-in">
+        <strong>Chú ý:</strong> Trước khi cài APK, hãy bật cho phép cài ứng dụng không rõ nguồn gốc. Luôn đảm bảo bạn tải file từ nguồn tin cậy.
+      </div>
+    </section>
+
+    <!-- features -->
+    <section id="features" style="margin-top:18px">
+      <h3 style="margin:0 0 10px 6px;font-size:18px">Tính năng chính</h3>
+
+      <div class="features">
+        <div class="card fade-in">
+          <h3>Tối ưu trải nghiệm</h3>
+          <p>Tùy chọn chức năng, cân phòng — giảm lag, ổn định kết nối.</p>
+        </div>
+
+        <div class="card fade-in">
+          <h3>Giao diện nhẹ</h3>
+          <p>Thiết kế tối giản, ít tốn tài nguyên, dễ dùng.</p>
+        </div>
+
+        <div class="card fade-in">
+          <h3>Tự động cập nhật</h3>
+          <p>Cập nhật cấu hình, profile tối ưu thường xuyên.</p>
+        </div>
+
+        <div class="card fade-in">
+          <h3>Bảo mật & tin cậy</h3>
+          <p>Hướng dẫn cài đặt an toàn, tệp nguồn rõ ràng.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- media / screenshot -->
+    <section class="media">
+      <div style="width:100%;display:flex;justify-content:space-between;align-items:center">
+        <strong>Ảnh demo</strong>
+        <div class="carousel-controls">
+          <div class="dot" data-index="0"></div>
+          <div class="dot active" data-index="1"></div>
+          <div class="dot" data-index="2"></div>
+        </div>
+      </div>
+
+      <div class="screenshot" id="screenshot">
+        <!-- sample images - thay link bằng ảnh của bạn -->
+        <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=2e92734ac8b0c3d6ef0e6b8f2f7dd3f0" alt="screenshot" id="screenshot-img">
+      </div>
+
+      <div style="width:100%;display:flex;gap:8px;justify-content:center">
+        <a class="btn ghost" href="#" onclick="openGuide(event)">Hướng dẫn cài</a>
+        <a class="btn primary" href="#" onclick="downloadClick(event)">Tải APK</a>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 Mihale Studio - START TEAM
+    </footer>
   </div>
 
   <script>
-    function generateKey() {
-      let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-      let key = "";
-      for (let i = 0; i < 20; i++) {
-        key += chars.charAt(Math.floor(Math.random() * chars.length));
+    // simple carousel demo (rotate images)
+    (function(){
+      const imgs = [
+        // Thay thế bằng ảnh thật (các URL public hoặc relative trong repo)
+        "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=2e92734ac8b0c3d6ef0e6b8f2f7dd3f0",
+        "https://images.unsplash.com/photo-1558980394-0c8b1d4b1b2a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=1f7d659b4e8b1c2d7d2c9a3a6d4b8f3a",
+        "https://images.unsplash.com/photo-1510070009289-b5bc34383727?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=5c5a2b1a6b2b4f0d4b6b2d5d2e7c8f1a"
+      ];
+
+      const imgEl = document.getElementById("screenshot-img");
+      const dots = Array.from(document.querySelectorAll(".dot"));
+      let idx = 1;
+      function show(i){
+        imgEl.style.opacity = 0;
+        setTimeout(()=> {
+          imgEl.src = imgs[i];
+          imgEl.alt = "screenshot " + (i+1);
+          dots.forEach(d => d.classList.remove("active"));
+          const active = dots.find(d => +d.dataset.index === i);
+          if(active) active.classList.add("active");
+          imgEl.style.opacity = 1;
+        }, 220);
       }
-      document.getElementById("keyOutput").innerText = key;
+
+      // initial
+      show(idx);
+
+      // auto rotate
+      setInterval(()=> {
+        idx = (idx + 1) % imgs.length;
+        show(idx);
+      }, 4000);
+
+      // dot click
+      dots.forEach(d => d.addEventListener("click", () => {
+        idx = +d.dataset.index;
+        show(idx);
+      }));
+    })();
+
+    function downloadClick(e){
+      e.preventDefault();
+      // demo: mở modal hoặc chuyển tới URL tải
+      // Thay '#' bằng đường dẫn thực tế tới APK khi up file trên GitHub/releases hoặc hosting.
+      const apkUrl = "https://example.com/your-app.apk";
+      // Hiển thị cảnh báo an toàn
+      if(confirm("Bạn sẽ tải tệp APK. Hãy đảm bảo cấp quyền cài từ nguồn không xác định. Tiếp tục?")) {
+        window.location.href = apkUrl;
+      }
     }
 
-    function clearKey() {
-      document.getElementById("keyOutput").innerText = "Key sẽ xuất hiện ở đây";
-    }
-
-    function copyKey() {
-      let key = document.getElementById("keyOutput").innerText;
-      navigator.clipboard.writeText(key);
-      alert("Đã sao chép key: " + key);
+    function openGuide(e){
+      e.preventDefault();
+      alert("Hướng dẫn ngắn:\n1) Bật 'Cài đặt từ nguồn không xác định' trên điện thoại.\n2) Tải APK và mở file để cài đặt.\n3) Nếu hệ điều hành chặn, vào Cài đặt → Ứng dụng → cho phép.\n\n(Đây là demo - chỉnh nội dung theo hướng dẫn chính thức của bạn.)");
     }
   </script>
 </body>
-</html>
+        </html>
