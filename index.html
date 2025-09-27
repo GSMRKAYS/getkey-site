@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>START TEAM— Tải app</title>
+  <title>KAY VÍP RỒ — Tải app</title>
 
   <!-- Google font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -17,299 +17,129 @@
       --muted: #6b7280;
       --card-bg: rgba(255,255,255,0.95);
       --radius: 16px;
-      --glass: rgba(255,255,255,0.8);
       --shadow: 0 8px 22px rgba(18,35,76,0.08);
       --maxw: 980px;
     }
-
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0;
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(180deg,var(--bg1),var(--bg2));
-      color: #0b1220;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      display:flex;
-      justify-content:center;
-      padding:24px 16px;
+      font-family:"Inter",sans-serif;
+      background:linear-gradient(180deg,var(--bg1),var(--bg2));
+      color:#0b1220;
+      display:flex;justify-content:center;padding:24px 16px;
     }
-
-    .wrap{
-      width:100%;
-      max-width:var(--maxw);
-    }
-
-    /* Top bar */
+    .wrap{width:100%;max-width:var(--maxw);}
     header.topbar{
-      position:sticky;
-      top:0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));
-      backdrop-filter: blur(6px);
-      border-radius: 14px;
-      padding:10px 14px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      box-shadow: var(--shadow);
-      z-index:20;
-      margin-bottom:18px;
+      position:sticky;top:0;background:#fffddfdd;
+      backdrop-filter:blur(6px);
+      border-radius:14px;padding:10px 14px;
+      display:flex;align-items:center;justify-content:space-between;
+      box-shadow:var(--shadow);margin-bottom:18px;
     }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
+    .brand{display:flex;align-items:center;gap:10px}
     .logo{
-      width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;
-      box-shadow: 0 6px 18px rgba(43,121,255,0.18);
+      width:36px;height:36px;border-radius:10px;overflow:hidden;
+      box-shadow:0 6px 18px rgba(43,121,255,0.18);
     }
+    .logo img{width:100%;height:100%;object-fit:cover}
     .brand h1{font-size:16px;margin:0}
-    .nav{
-      display:flex;gap:14px;align-items:center;
-    }
+    .nav{display:flex;gap:14px;align-items:center}
     .nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:14px}
     .nav a.primary{color:var(--accent)}
-
-    /* Hero */
-    .hero{
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-      padding:22px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
-      border-radius:18px;
-      box-shadow: var(--shadow);
-    }
-
-    .badge{
-      display:inline-block;
-      background: rgba(43,121,255,0.12);
-      color: var(--accent);
-      padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content;
-    }
-
-    .title{
-      font-size:28px;line-height:1.02;font-weight:800;margin:0;
-    }
+    .hero{display:flex;flex-direction:column;gap:18px;padding:22px;background:#fff;border-radius:18px;box-shadow:var(--shadow);}
+    .badge{display:inline-block;background:rgba(43,121,255,0.12);color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px}
+    .title{font-size:28px;font-weight:800;margin:0}
     .subtitle{color:var(--muted);font-size:15px;margin:0}
-
-    .hero-cta{
-      display:flex;gap:12px;flex-wrap:wrap;margin-top:6px;
-    }
-    .btn{
-      border:0;padding:12px 18px;border-radius:12px;font-weight:700;font-size:15px;
-      cursor:pointer;
-      display:inline-flex;align-items:center;gap:10px;
-    }
-    .btn.primary{
-      background: linear-gradient(90deg,var(--accent),var(--accent-2));
-      color:white;box-shadow: 0 10px 30px rgba(43,121,255,0.18);
-    }
-    .btn.ghost{
-      background:transparent;color:var(--accent);border:1px solid rgba(43,121,255,0.12);
-    }
-
-    .note{
-      margin-top:8px;background:var(--card-bg);padding:12px;border-radius:12px;color: #374151;font-size:14px;box-shadow: 0 6px 18px rgba(15,23,42,0.04);
-    }
-
-    /* Features grid */
-    .features{
-      margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px;
-    }
-    .card{
-      background:var(--card-bg);border-radius:14px;padding:16px;box-shadow: var(--shadow);
-    }
-    .card h3{margin:0 0 8px 0;font-size:16px}
+    .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{border:0;padding:12px 18px;border-radius:12px;font-weight:700;font-size:15px;cursor:pointer;display:inline-flex;align-items:center;gap:10px;text-decoration:none}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white}
+    .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(43,121,255,0.12)}
+    .note{margin-top:8px;background:var(--card-bg);padding:12px;border-radius:12px;color:#374151;font-size:14px;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
+    .features{margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .card{background:var(--card-bg);border-radius:14px;padding:16px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 8px;font-size:16px}
     .card p{margin:0;color:var(--muted);font-size:13px}
-
-    /* big image area */
-    .media{
-      margin-top:18px;background: linear-gradient(180deg,#fff,#f7fbff);border-radius:14px;padding:14px;box-shadow:var(--shadow);
-      display:flex;flex-direction:column;gap:12px;align-items:center;
-    }
-    .screenshot{
-      width:100%;max-width:480px;border-radius:12px;overflow:hidden;border:1px solid rgba(12,20,40,0.04);
-      background: #000; display:flex;align-items:center;justify-content:center;padding:8px;
-    }
+    .media{margin-top:18px;background:#fff;border-radius:14px;padding:14px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;align-items:center}
+    .screenshot{width:100%;max-width:480px;border-radius:12px;overflow:hidden}
     .screenshot img{width:100%;height:auto;display:block}
-
     .carousel-controls{display:flex;gap:8px;align-items:center}
     .dot{width:8px;height:8px;border-radius:999px;background:rgba(0,0,0,0.12)}
     .dot.active{background:var(--accent)}
-
     footer{margin-top:22px;text-align:center;color:var(--muted);font-size:13px;padding-bottom:20px}
-
-    /* responsive */
-    @media (max-width:720px){
-      .title{font-size:26px}
-      .features{grid-template-columns:1fr}
-      header.topbar{padding:10px}
-      .brand h1{font-size:15px}
-    }
-
-    /* little entrance animations */
-    .fade-in{opacity:0;transform:translateY(6px);animation:fadeIn 700ms ease forwards}
-    .fade-in.delay-1{animation-delay:100ms}
-    .fade-in.delay-2{animation-delay:200ms}
-    .pop{transform:scale(.98);animation:pop 600ms ease forwards}
-    @keyframes fadeIn{to{opacity:1;transform:none}}
-    @keyframes pop{to{transform:none}}
+    @media(max-width:720px){.features{grid-template-columns:1fr}.title{font-size:24px}}
   </style>
 </head>
 <body>
-  <div class="wrap">
+<div class="wrap">
 
-    <!-- Top header -->
-    <header class="topbar fade-in">
-      <div class="brand">
-        <div class="logo">PM</div>
-        <div>
-          <h1>START TEAM</h1>
-          <div style="font-size:12px;color:var(--muted)">Tải về · Tính năng</div>
-        </div>
+  <!-- Header -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">
+        <img src="https://cdn.discordapp.com/attachments/1389990573330534452/1421467313533747282/1b371bb043401cd000eb29c53954bb88.jpg" alt="Logo">
       </div>
-
-      <nav class="nav">
-        <a href="#download" class="primary">Tải về</a>
-        <a href="#features">Tính năng</a>
-        <a href="#" title="menu">⋮</a>
-      </nav>
-    </header>
-
-    <!-- Hero -->
-    <section class="hero pop">
-      <span class="badge fade-in delay-1">Phiên bản miễn phí</span>
-      <h2 class="title fade-in delay-2">START TEAM— Tối ưu kết nối, cải thiện trải nghiệm chơi</h2>
-      <p class="subtitle fade-in delay-2">Ứng dụng mang tính chất trải nghiệm.</p>
-
-      <div class="hero-cta fade-in">
-        <a id="download" class="btn primary" href="#" onclick="downloadClick(event)">
-          ⬇ Tải về APK
-        </a>
-        <a class="btn ghost" href="#features">Xem tính năng</a>
+      <div>
+        <h1>KAY VÍP RỒ</h1>
+        <div style="font-size:12px;color:var(--muted)">Tải về · Tính năng</div>
       </div>
+    </div>
+    <nav class="nav">
+      <a href="#download" class="primary">Tải về</a>
+      <a href="#features">Tính năng</a>
+    </nav>
+  </header>
 
-      <div class="note fade-in">
-        <strong>Chú ý:</strong> Trước khi cài APK, hãy bật cho phép cài ứng dụng không rõ nguồn gốc. Luôn đảm bảo bạn tải file từ nguồn tin cậy.
+  <!-- Hero -->
+  <section class="hero">
+    <span class="badge">Phiên bản miễn phí</span>
+    <h2 class="title">KAY VÍP RỒ — Tối ưu kết nối, cải thiện trải nghiệm chơi</h2>
+    <p class="subtitle">Ứng dụng mang tính chất trải nghiệm.</p>
+    <div class="hero-cta">
+      <a id="download" class="btn primary" href="#">⬇ Tải về APK</a>
+      <a class="btn ghost" href="#features">Xem tính năng</a>
+    </div>
+    <div class="note"><strong>Chú ý:</strong> Trước khi cài APK, hãy bật cho phép cài ứng dụng không rõ nguồn gốc.</div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" style="margin-top:18px">
+    <h3 style="margin:0 0 10px 6px;font-size:18px">Tính năng chính</h3>
+    <div class="features">
+      <div class="card"><h3>Tối ưu trải nghiệm</h3><p>Tùy chọn chức năng, cân phòng.</p></div>
+      <div class="card"><h3>Giao diện nhẹ</h3><p>Thiết kế tối giản, ít tốn tài nguyên.</p></div>
+    </div>
+  </section>
+
+  <!-- Media -->
+  <section class="media">
+    <div style="width:100%;display:flex;justify-content:space-between;align-items:center">
+      <strong>Ảnh demo</strong>
+      <div class="carousel-controls">
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
       </div>
-    </section>
+    </div>
+    <div class="screenshot">
+      <img id="screenshot-img" src="https://cdn.discordapp.com/attachments/1389990573330534452/1421467259582419034/IMG_20250927_190254.jpg" alt="Demo">
+    </div>
+  </section>
 
-    <!-- features -->
-    <section id="features" style="margin-top:18px">
-      <h3 style="margin:0 0 10px 6px;font-size:18px">Tính năng chính</h3>
+  <footer>© 2025 Mihale Studio - KAY VÍP RỒ</footer>
+</div>
 
-      <div class="features">
-        <div class="card fade-in">
-          <h3>Tối ưu trải nghiệm</h3>
-          <p>Tùy chọn chức năng, cân phòng — giảm lag, ổn định kết nối.</p>
-        </div>
-
-        <div class="card fade-in">
-          <h3>Giao diện nhẹ</h3>
-          <p>Thiết kế tối giản, ít tốn tài nguyên, dễ dùng.</p>
-        </div>
-
-        <div class="card fade-in">
-          <h3>Tự động cập nhật</h3>
-          <p>Cập nhật cấu hình, profile tối ưu thường xuyên.</p>
-        </div>
-
-        <div class="card fade-in">
-          <h3>Bảo mật & tin cậy</h3>
-          <p>Hướng dẫn cài đặt an toàn, tệp nguồn rõ ràng.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- media / screenshot -->
-    <section class="media">
-      <div style="width:100%;display:flex;justify-content:space-between;align-items:center">
-        <strong>Ảnh demo</strong>
-        <div class="carousel-controls">
-          <div class="dot" data-index="0"></div>
-          <div class="dot active" data-index="1"></div>
-          <div class="dot" data-index="2"></div>
-        </div>
-      </div>
-
-      <div class="screenshot" id="screenshot">
-        <!-- sample images - thay link bằng ảnh của bạn -->
-        <img src="https://cdn.discordapp.com/attachments/1389990573330534452/1421467260148777011/IMG_20250927_190245.jpg?ex=68d9240c&is=68d7d28c&hm=fb683dbe8dac82387ab0934abb6624ef656dc44f996e0b2eb88355b7370943a2&">
-      </div>
-
-      <div style="width:100%;display:flex;gap:8px;justify-content:center">
-        <a class="btn ghost" href="#" onclick="openGuide(event)">Hướng dẫn cài</a>
-        <a class="btn primary" href="#" onclick="downloadClick(event)">Tải APK</a>
-      </div>
-    </section>
-
-    <footer>
-      © 2025 Mihale Studio - START TEAM
-    </footer>
-  </div>
-
-  <script>
-    // simple carousel demo (rotate images)
-    (function(){
-      const imgs = [
-        // Thay thế bằng ảnh thật (các URL public hoặc relative trong repo)
-        "https://cdn.discordapp.com/attachments/1389990573330534452/1421467259582419034/IMG_20250927_190254.jpg?ex=68d9240c&is=68d7d28c&hm=0492b4acb8d50c087d117dac76a07e4fb7c51ecd54a24e3636266846ea6dbebe&",
-        "https://cdn.discordapp.com/attachments/1389990573330534452/1421467260148777011/IMG_20250927_190245.jpg?ex=68d9240c&is=68d7d28c&hm=fb683dbe8dac82387ab0934abb6624ef656dc44f996e0b2eb88355b7370943a2&",
-        "https://cdn.discordapp.com/attachments/1389990573330534452/1421467260970733680/IMG_20250927_190218.jpg?ex=68d9240c&is=68d7d28c&hm=4935f021b0e4b451ee3ee7dc7785af2c54f95db686e4a5940ac461dceed9f50d&"
-      ];
-
-      const imgEl = document.getElementById("screenshot-img");
-      const dots = Array.from(document.querySelectorAll(".dot"));
-      let idx = 1;
-      function show(i){
-        imgEl.style.opacity = 0;
-        setTimeout(()=> {
-          imgEl.src = imgs[i];
-          imgEl.alt = "screenshot " + (i+1);
-          dots.forEach(d => d.classList.remove("active"));
-          const active = dots.find(d => +d.dataset.index === i);
-          if(active) active.classList.add("active");
-          imgEl.style.opacity = 1;
-        }, 220);
-      }
-
-      // initial
-      show(idx);
-
-      // auto rotate
-      setInterval(()=> {
-        idx = (idx + 1) % imgs.length;
-        show(idx);
-      }, 4000);
-
-      // dot click
-      dots.forEach(d => d.addEventListener("click", () => {
-        idx = +d.dataset.index;
-        show(idx);
-      }));
-    })();
-
-    function downloadClick(e){
-      e.preventDefault();
-      // demo: mở modal hoặc chuyển tới URL tải
-      // Thay '#' bằng đường dẫn thực tế tới APK khi up file trên GitHub/releases hoặc hosting.
-      const apkUrl = "https://www.mediafire.com/file/xrm15lcuiz09tq3/KAY_V%25C3%258DP_R%25E1%25BB%2592_V4_1.0.apk/file";
-      // Hiển thị cảnh báo an toàn
-      if(confirm("Bạn sẽ tải tệp APK. Hãy đảm bảo cấp quyền cài từ nguồn không xác định. Tiếp tục?")) {
-        window.location.href = apkUrl;
-      }
-    }
-
-    function openGuide(e){
-      e.preventDefault();
-      alert("Hướng dẫn ngắn:\n1) Bật 'Cài đặt từ nguồn không xác định' trên điện thoại.\n2) Tải APK và mở file để cài đặt.\n3) Nếu hệ điều hành chặn, vào Cài đặt → Ứng dụng → cho phép.\n\n(Đây là demo - chỉnh nội dung theo hướng dẫn chính thức của bạn.)");
-    }
-  </script>
+<script>
+  const imgs = [
+    "https://cdn.discordapp.com/attachments/1389990573330534452/1421467259582419034/IMG_20250927_190254.jpg",
+    "https://cdn.discordapp.com/attachments/1389990573330534452/1421467260148777011/IMG_20250927_190245.jpg",
+    "https://cdn.discordapp.com/attachments/1389990573330534452/1421467260970733680/IMG_20250927_190218.jpg"
+  ];
+  const imgEl = document.getElementById("screenshot-img");
+  const dots = document.querySelectorAll(".dot");
+  let idx=0;
+  function show(i){
+    imgEl.src = imgs[i];
+    dots.forEach((d,j)=>d.classList.toggle("active",j===i));
+  }
+  setInterval(()=>{idx=(idx+1)%imgs.length;show(idx)},4000);
+</script>
 </body>
-        </html>
+  </html>
