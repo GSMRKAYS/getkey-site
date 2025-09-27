@@ -30,7 +30,8 @@
     }
     .wrap{width:100%;max-width:var(--maxw);}
     header.topbar{
-      position:sticky;top:0;background:#fffddfdd;
+      position:sticky;top:0;
+      background:rgba(255,253,221,0.87); /* ✅ màu hợp lệ */
       backdrop-filter:blur(6px);
       border-radius:14px;padding:10px 14px;
       display:flex;align-items:center;justify-content:space-between;
@@ -142,4 +143,4 @@
   setInterval(()=>{idx=(idx+1)%imgs.length;show(idx)},4000);
 </script>
 </body>
-</html>
+    </html>
