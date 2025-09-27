@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Get Key</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      border-radius: 6px;
+      border: none;
+    }
+    button {
+      background: #28a745;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>Nhập Key để tiếp tục</h2>
+  <input type="text" id="keyInput" placeholder="Nhập key của bạn...">
+  <button onclick="checkKey()">Xác nhận</button>
+
+  <p id="result"></p>
+
+  <script>
+    // Key hợp lệ bạn đặt ở đây
+    const validKey = "ABC123";
+
+    function checkKey() {
+      const input = document.getElementById("keyInput").value;
+      const result = document.getElementById("result");
+      if (input === validKey) {
+        result.innerHTML = "✅ Key hợp lệ! <br> <a href='https://yourlink.com'>Tiếp tục</a>";
+      } else {
+        result.innerText = "❌ Key sai, vui lòng thử lại!";
+      }
+    }
+  </script>
+</body>
+</html>
